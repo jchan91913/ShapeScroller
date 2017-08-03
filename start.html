@@ -1,0 +1,106 @@
+<!--Group 11-->
+<!--This is the main game page which has all the HTML panels-->
+<!DOCTYPE html>
+<html lang="en" ng-app="" ng-init="level='0';color='colorRed';lives=3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ShapeScroller</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/jquery.countdown360.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+
+</head>
+<body>
+<!--Music with loop -->
+<audio  id="music" loop autoplay>
+  <source src="sounds/FireAura.mp3" type="audio/mpeg">
+</audio>
+<!--Main Panel showing the start buttons-->
+<div id=mainPanel>
+    <img src="images/logo.png"><br>
+    <button class="button" id="play">Play</button>
+    <button class="button" id="tutorial">Tutorial</button>
+    <button class="button" id="settings">Settings</button>
+    <button class="button" id="mute">Mute</button>
+</div>
+<!--Changes settings panel-->
+<div id=settingsPanel>
+    <button class="button" id="music">Settings</button>
+    <button class="button" id="border">Color Blind Border</button>
+    <button class="button" id="noborder">Normal Border</button>
+</div>
+<!--stats panel, shows live and level-->
+<div id="stats">
+    <span id="lives">lives not set</span>
+    <span id="levelCounter">level not set</span>
+</div>
+<!--gameover input for the leaderboard-->
+<div id="gameOver">
+    <p>game over sorry, submit your high score below</p>
+
+    <p id="levelAcheived"></p>
+
+    <form action="welcome.php" method="post">
+        Name: <input type="text" name="name" required><br>
+        E-mail: <input type="text" name="email" required><br>
+        Level Completed: <input type="text" name="level" readonly><br>
+        <input type="submit">
+    </form>
+</div>
+<!--Has the random shapes-->
+<div id="randomGenerator">
+    <div id="countdown">
+        <button id="start_click">Skip Countdown</button>
+    </div>
+
+    <div id="shapelist0" class="lista divScroll one">
+
+    </div>
+    <div id="shapelist1" class="lista divScroll two">
+
+    </div>
+    <div id="shapelist2" class="lista divScroll three">
+
+    </div>
+</div>
+<!--panel for dragging shapes onto-->
+<div id="input">
+    <div class="row">
+
+        <div id="shapelist4" class="list divScroll one"></div>
+        <div id="shapelist5" class="list divScroll two"></div>
+        <div id="shapelist6" class="list divScroll three"></div>
+
+    </div>
+
+<!--where the radiobuttons to change shape colors are-->
+    <div class="formGroup radio-toolbar">
+        <label><input id="redRadio" class="custom" type="radio" name="color" value="colorRed" ng-model="color"
+                      checked="checked">Red</label>
+        <label><input id="greenRadio" class="custom" type="radio" name="color" value="colorGreen" ng-model="color">Green</label>
+        <label><input id="blueRadio" class="custom" type="radio" name="color" value="colorBlue" ng-model="color">Blue&nbsp</label>
+        <button id="input_click" class="verify">verify here</button>
+        <button id="clue_click" class="verify">give me clue</button>
+    </div>
+
+
+    <br>
+<!--shapes to drag into the rows-->
+    <div id="init">
+        <span id="shapelist3" class=" list trash "></span>
+
+        <img id="circle" class="block {{color}}" src="images/circle.jpg">
+        <img id="box" class="block {{color}}" src="images/box.jpg">
+        <img id="triangle" class="block {{color}}" src="images/triangle.jpg">
+    </div>
+
+
+</div>
+<script src="js/start.js"></script>
+</body>
+</html>

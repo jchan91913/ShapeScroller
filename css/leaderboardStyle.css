@@ -1,0 +1,16 @@
+body{
+	width: auto !important;  /* Firefox will set width as auto */
+	width:480px;             /* As IE ignores !important it will set width as 1000px; */
+	background-image: url("../images/carbon.png");
+	color: #ffffff;
+	text-align: center;
+}
+
+table, th, td {
+	margin-left: auto;
+	margin-right: auto;
+    color: #ffffff;
+	text-align: center;
+	border: 1px solid white;
+}
+\ No newline at end of file
